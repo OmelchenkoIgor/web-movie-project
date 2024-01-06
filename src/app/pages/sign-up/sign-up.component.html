@@ -1,0 +1,16 @@
+<p>sign-up works!</p>
+
+<button routerLink="/home">Home</button>
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <label>Name</label>
+  <input type="text" formControlName="name">
+
+  <label>Email</label>
+  <input type="text" formControlName="email">
+
+  <label>Password</label>
+  <input type="password" formControlName="password">
+
+  <button type="submit">Sign Up</button>
+</form>

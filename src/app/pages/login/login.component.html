@@ -1,0 +1,13 @@
+<p>login works!</p>
+
+<button routerLink="/home">Home</button>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <label>Email</label>
+  <input type="text" formControlName="email">
+
+  <label>Password</label>
+  <input type="password" formControlName="password">
+
+  <button type="submit">Login</button>
+</form>
