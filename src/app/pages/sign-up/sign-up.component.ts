@@ -30,6 +30,8 @@ export class SignUpComponent {
     if (this.registrationForm.valid) {
       this.apiService.addUser(this.registrationForm.value).subscribe(
         (response) => {
+          localStorage.setItem('authorizationToken', response.token);
+          localStorage.setItem('name', response.name);
           this.router.navigate(['/home']);
           console.log(response)
         },
