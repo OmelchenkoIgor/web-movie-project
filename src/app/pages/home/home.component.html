@@ -1,4 +1,19 @@
-<div>
-  <button routerLink="/login">Login</button>
-  <button routerLink="/sign-up">Sign Up</button>
+<div class="wrapper">
+  <div *ngIf="authorizationToken" class="login-info">
+    <p>Чудово {{ name }}, ви зареєструвалися в системі, дякуємо за підтримку!</p>
+  </div>
+
+  <div *ngIf="!authorizationToken" class="register-info">
+    <p>
+      Привіт, ви потрапили на майбутню домашню сторінку чудо-сайту...
+      Він ще не готовий, але ви можете зареєструватися в системі)
+    </p>
+  </div>
+
+  <div *ngIf="!authorizationToken" class="container-btn">
+    <button class="login-btn" routerLink="/login">Login</button>
+    <button class="signUp-btn" routerLink="/sign-up">Sign Up</button>
+  </div>
+
+  <button *ngIf="authorizationToken" class="logOut-btn" (click)="lonOut()">Log out</button>
 </div>

@@ -16,7 +16,7 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private apiService: ApiService
   ) {
     this.loginForm = this.fb.group({
@@ -29,11 +29,13 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.apiService.loginUser(this.loginForm.value).subscribe(
         (response) => {
+          localStorage.setItem('authorizationToken', response.token);
+          localStorage.setItem('name', response.name);
           this.router.navigate(['/home']);
           console.log(response);
         },
         error => {
-          this._snackBar.open(error.error.message, '', {
+          this.snackBar.open(error.error.message, '', {
             duration: 3000,
             panelClass: ['error-snackbar']
           });

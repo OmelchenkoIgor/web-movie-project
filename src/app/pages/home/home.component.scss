@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Забезпечте висоту контейнера на весь екран */
+
+  .login-info,
+  .register-info {
+    max-width: 500px;
+    text-align: center;
+
+    color:#fff;
+  }
+
+  .container-btn {
+    display: flex;
+    gap: 5px;
+  }
+
+  .login-btn,
+  .signUp-btn,
+  .logOut-btn {
+    font-weight: 100;
+    padding: 5px 15px;
+
+    border: 1px solid #fff;
+
+    color: #fff;
+    background: #FC4747;
+    cursor: pointer;
+
+    font-family: 'Outfit', sans-serif;
+    transition: background 0.5s, color 0.5s;
+  }
+
+  .logOut-btn {
+    width: 150px;
+  }
+
+  .login-btn:hover,
+  .signUp-btn:hover,
+  .logOut-btn:hover {
+    color: #000000;
+    background: #fff;
+  }
+}

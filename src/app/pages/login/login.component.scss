@@ -8,11 +8,12 @@
     left: 50%;
     top: 80px;
 
+    cursor: pointer;
+
     transform: translateX(-50%);
   }
 
   .login-container {
-    height: 375px;
     width: 400px;
 
     margin: auto;

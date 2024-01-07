@@ -1,16 +1,30 @@
-<p>sign-up works!</p>
+<div class="wrapper">
 
-<button routerLink="/home">Home</button>
+  <div class="logo">
+    <img routerLink="/home" src="./assets/icons/icon-movie.png">
+  </div>
 
-<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-  <label>Name</label>
-  <input type="text" formControlName="name">
+  <div class="login-container">
+    <p class="name-form">Sign Up</p>
 
-  <label>Email</label>
-  <input type="text" formControlName="email">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
 
-  <label>Password</label>
-  <input type="password" formControlName="password">
+      <div class="fields-container">
+        <input class="name-field" type="text" formControlName="name" placeholder="Name">
 
-  <button type="submit">Sign Up</button>
-</form>
+        <input class="email-field" type="text" formControlName="email" placeholder="Email address">
+
+        <input class="password-field" type="password" formControlName="password" placeholder="Password">
+      </div>
+
+      <button class="signUp-btn" type="submit">Create an account</button>
+
+      <div class="link-container">
+        <p>Already have an account?</p>
+        <a class="link" routerLink="/login">Login</a>
+      </div>
+
+    </form>
+
+  </div>
+</div>
