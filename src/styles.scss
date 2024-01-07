@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Outfit';
+  src: url('./assets/Outfit/static/Outfit-Light.ttf') format('truetype'),
+  url('./assets/Outfit/static/Outfit-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: #10141E;
+  font-family: 'Outfit', sans-serif;
+}

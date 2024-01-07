@@ -11,6 +11,10 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +28,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

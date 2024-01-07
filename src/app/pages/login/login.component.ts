@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 import {ApiService} from '../../services/api.service';
 
 @Component({
@@ -12,22 +15,33 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
+    private _snackBar: MatSnackBar,
     private apiService: ApiService
   ) {
     this.loginForm = this.fb.group({
-      email: [''],
-      password: ['']
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
     });
   }
 
   public onSubmit() {
-    this.apiService.loginUser(this.loginForm.value).subscribe(
-      (response) => {
-        console.log(response)
-      },
-      error => {
-        console.log(error);
-      }
-    )
+    if (this.loginForm.valid) {
+      this.apiService.loginUser(this.loginForm.value).subscribe(
+        (response) => {
+          this.router.navigate(['/home']);
+          console.log(response);
+        },
+        error => {
+          this._snackBar.open(error.error.message, '', {
+            duration: 3000,
+            panelClass: ['error-snackbar']
+          });
+          console.log(error);
+        }
+      );
+    } else {
+      console.log('Fields are not filled');
+    }
   }
 }

@@ -1,13 +1,28 @@
-<p>login works!</p>
+<div class="wrapper">
 
-<button routerLink="/home">Home</button>
+  <div class="logo">
+    <img src="./assets/icons/icon-movie.png">
+  </div>
 
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <label>Email</label>
-  <input type="text" formControlName="email">
+  <div class="login-container">
+    <p class="name-form">Login</p>
 
-  <label>Password</label>
-  <input type="password" formControlName="password">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-  <button type="submit">Login</button>
-</form>
+      <div class="fields-container">
+        <input class="email-field" type="text" formControlName="email" placeholder="Email address">
+
+        <input class="password-field" type="password" formControlName="password" placeholder="Password">
+      </div>
+
+      <button class="login-btn" type="submit">Login to your account</button>
+
+      <div class="link-container">
+        <p>Don’t have an account?</p>
+        <a class="link" routerLink="/sign-up">Sign Up</a>
+      </div>
+
+    </form>
+
+  </div>
+</div>
