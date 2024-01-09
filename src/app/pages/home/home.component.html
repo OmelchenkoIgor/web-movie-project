@@ -1,36 +1,33 @@
 <div class="wrapper">
-  <div class="block1">
-    <div class="inner-block">
+
+  <div class="sidebar">
+    <div class="inner-container">
+
       <div class="logo">
         <img src="assets/icons/icon-movie.png">
       </div>
+
       <div class="icons">
         Icon1 Icon2 Icon3 Icon4
       </div>
 
-      <div class="user-image" *ngIf="_auth.isAuthenticated$ | async" (click)="toggleLogoutBlock()">
+      <div class="user-image" *ngIf="_auth.isAuthenticated$ | async" routerLink="/account">
         <img src="{{loggedInUser.picture}}">
       </div>
 
       <div class="user-image" *ngIf="!(_auth.isAuthenticated$ | async)">
-        <i class="ph ph-user svg-icon" style="color: #ffffff" (click)="_auth.loginWithPopup()"></i>
+        <i class="ph ph-user svg-icon" (click)="_auth.loginWithPopup()"></i>
       </div>
     </div>
   </div>
-  <div class="block2">
+
+
+  <div class="content-container">
     <p *ngIf="!(_auth.isAuthenticated$ | async)">
-      Привіт, ви потрапили на майбутню домашню сторінку чудо-сайту...
-      Він ще не готовий, але ви можете зареєструватися в системі)
+      {{'messageUserNotLoggedIn' | translate}}
     </p>
     <p *ngIf="_auth.isAuthenticated$ | async">
-      Чудово {{loggedInUser.given_name}}, ви увійшли в системі, дякуємо за підтримку!
+      {{loggedInUser.given_name}}, {{'messageUserLoggedIn' | translate}}
     </p>
-  </div>
-</div>
-
-<div class="logout-block" *ngIf="showLogoutBlock">
-  <div class="logout-content">
-    <p>Ви дійсно хочете вийти з особистого кабінету?</p>
-    <button (click)="_auth.logout()">Log out</button>
   </div>
 </div>

@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="user-container">
+    <div class="home-container">
+      <i class="ph ph-house svg-icon" routerLink="/home"></i>
+    </div>
+    <div class="user-info">
+      <div class="user-image">
+        <img src="{{loggedInUser.picture}}">
+      </div>
+      <div class="user-description">
+        <p>{{'name' | translate}}: {{loggedInUser.name}}</p>
+        <p>{{'email' | translate}}: {{loggedInUser.email}}</p>
+      </div>
+    </div>
+    <div class="settings-container">
+      <p>{{'settings' | translate}}</p>
+      <div class="lang-container">
+        <button class="text-accent" (click)="changeLang('en')">{{'english' | translate}}</button>
+        <button class="text-accent" (click)="changeLang('uk')">{{'ukrainian' | translate}}</button>
+      </div>
+    </div>
+    <button class="logout-btn" (click)="_auth.logout()">{{'logout' | translate}}</button>
+
+
+  </div>
+</div>
