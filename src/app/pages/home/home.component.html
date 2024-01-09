@@ -1,19 +1,36 @@
 <div class="wrapper">
-  <div *ngIf="authorizationToken" class="login-info">
-    <p>Чудово {{ name }}, ви увійшли в системі, дякуємо за підтримку!</p>
-  </div>
+  <div class="block1">
+    <div class="inner-block">
+      <div class="logo">
+        <img src="assets/icons/icon-movie.png">
+      </div>
+      <div class="icons">
+        Icon1 Icon2 Icon3 Icon4
+      </div>
 
-  <div *ngIf="!authorizationToken" class="register-info">
-    <p>
+      <div class="user-image" *ngIf="_auth.isAuthenticated$ | async" (click)="toggleLogoutBlock()">
+        <img src="{{loggedInUser.picture}}">
+      </div>
+
+      <div class="user-image" *ngIf="!(_auth.isAuthenticated$ | async)">
+        <i class="ph ph-user svg-icon" style="color: #ffffff" (click)="_auth.loginWithPopup()"></i>
+      </div>
+    </div>
+  </div>
+  <div class="block2">
+    <p *ngIf="!(_auth.isAuthenticated$ | async)">
       Привіт, ви потрапили на майбутню домашню сторінку чудо-сайту...
       Він ще не готовий, але ви можете зареєструватися в системі)
     </p>
+    <p *ngIf="_auth.isAuthenticated$ | async">
+      Чудово {{loggedInUser.given_name}}, ви увійшли в системі, дякуємо за підтримку!
+    </p>
   </div>
+</div>
 
-  <div *ngIf="!authorizationToken" class="container-btn">
-    <button class="login-btn" routerLink="/login">Login</button>
-    <button class="signUp-btn" routerLink="/sign-up">Sign Up</button>
+<div class="logout-block" *ngIf="showLogoutBlock">
+  <div class="logout-content">
+    <p>Ви дійсно хочете вийти з особистого кабінету?</p>
+    <button (click)="_auth.logout()">Log out</button>
   </div>
-
-  <button *ngIf="authorizationToken" class="logOut-btn" (click)="lonOut()">Log out</button>
 </div>

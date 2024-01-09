@@ -6,22 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {AuthModule} from "@auth0/auth0-angular";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    LoginComponent,
-    SignUpComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +28,15 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+
+    AuthModule.forRoot({
+      domain: 'dev-4uj7xd5j1fodgl1b.us.auth0.com',
+      clientId: 'T4PZc080dZ5OfaDWRSv6RwvJGKUebEi7',
+      authorizationParams: {
+        redirect_uri:window.location.origin
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

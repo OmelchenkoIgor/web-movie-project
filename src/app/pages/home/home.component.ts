@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {AuthService} from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-home',
@@ -7,20 +8,28 @@ import {Component, OnInit} from '@angular/core';
 })
 
 export class HomeComponent implements OnInit{
-  public authorizationToken: string | null | undefined;
-  public name: string | null | undefined;
-
-  constructor() {}
+  public loggedInUser: any;
+  public showLogoutBlock: boolean = false;
+  constructor(public _auth:AuthService) {}
 
   ngOnInit() {
-    this.authorizationToken = localStorage.getItem('authorizationToken');
-    this.name = localStorage.getItem('name');
+    if(this._auth.user$) {
+      this._auth.user$.subscribe((data) =>{
+        this.loggedInUser = data;
+        console.log('LoggerIn User', this.loggedInUser);
+      })
+    }
   }
 
-  public lonOut() {
-    localStorage.removeItem('authorizationToken');
-    localStorage.removeItem('name');
+  public toggleLogoutBlock(): void {
+    this.showLogoutBlock = !this.showLogoutBlock;
+  }
 
-    location.reload();
+  @HostListener('document:click', ['$event'])
+  public onDocumentClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.logout-block') && !target.closest('.user-image')) {
+      this.showLogoutBlock = false;
+    }
   }
 }

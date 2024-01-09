@@ -1,47 +1,138 @@
 .wrapper {
-  height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.block1 {
+  flex: 1;
+  color: #ffffffff;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.inner-block {
+  max-width: 96px;
+  height: 85vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 32px;
+  margin: 32px auto;
+  padding: 30px 0;
+  border-radius: 20px;
+
+  background-color: #161D2F;
+
+  display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  padding: 10px;
+  text-align: left;
+}
+
+.icons {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
 
-  .login-info,
-  .register-info {
-    max-width: 500px;
-    text-align: center;
+.user-image {
+  text-align: right;
+}
 
-    color:#fff;
+.user-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ffffffff;
+  cursor: pointer;
+}
+
+.svg-icon {
+  color: #ffffff;
+  font-size: 40px;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.logout-block {
+  min-width: 250px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  color: #ffffff;
+  background-color: #161D2F;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgb(231, 231, 231);
+}
+
+.logout-content {
+  margin: auto;
+}
+
+.logout-content button {
+  width: 150px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  color: #ffffff;
+  background-color: #FC4747;
+  cursor: pointer;
+  transition: background-color 1s, color 1s;
+}
+
+.logout-content button:hover {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+
+.block2 {
+  flex: 9;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
   }
 
-  .container-btn {
-    display: flex;
-    gap: 5px;
+  .block1 {
+    order: -1;
   }
 
-  .login-btn,
-  .signUp-btn,
-  .logOut-btn {
-    font-weight: 100;
-    padding: 5px 15px;
-
-    border: 1px solid #fff;
-
-    color: #fff;
-    background: #FC4747;
-    cursor: pointer;
-
-    font-family: 'Outfit', sans-serif;
-    transition: background 0.5s, color 0.5s;
+  .inner-block {
+    max-width: 100%;
+    height: 75px;
+    margin: 25px;
+    left: 0;
+    right: 0;
+    padding: 0 30px;
+    flex-direction: row;
   }
 
-  .logOut-btn {
-    width: 150px;
+  .logo,
+  .icons,
+  .user-image {
+    width: 100%;
   }
 
-  .login-btn:hover,
-  .signUp-btn:hover,
-  .logOut-btn:hover {
-    color: #000000;
-    background: #fff;
+  .user-image {
+    text-align: right;
   }
 }
