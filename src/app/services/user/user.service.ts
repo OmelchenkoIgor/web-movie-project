@@ -10,7 +10,7 @@ export class UserService {
 
   constructor() { }
 
-  setLoggedInUserData(data: any) {
+  public setLoggedInUserData(data: any) {
     this.loggedInUserData.next(data);
   }
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user/user.service';
 import {AuthService} from '@auth0/auth0-angular';
-import {TranslateService} from '@ngx-translate/core';
+import {TranslocoService} from '@ngneat/transloco';
 
 @Component({
   selector: 'app-account',
@@ -13,8 +13,8 @@ export class AccountComponent implements OnInit {
 
   constructor(
     public _auth: AuthService,
-    private userService: UserService,
-    private translateService: TranslateService
+    public userService: UserService,
+    public translocoService: TranslocoService
   ) {}
 
   ngOnInit() {
@@ -23,11 +23,10 @@ export class AccountComponent implements OnInit {
     });
   }
 
-  public changeLang(value: any) {
-    const params = JSON.parse(localStorage.getItem('pg-params') || '{}');
-    const lang = params?.lang || 'uk';
+  public changeLanguage(language: string): void {
+    this.translocoService.setActiveLang(language);
 
-    localStorage.setItem('pg-params', JSON.stringify({ lang: value }));
-    this.translateService.use(value);
+    const webParams = { language };
+    localStorage.setItem('web-params', JSON.stringify(webParams));
   }
 }

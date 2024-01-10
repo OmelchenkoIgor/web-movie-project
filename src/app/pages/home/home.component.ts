@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user/user.service';
 import {AuthService} from '@auth0/auth0-angular';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit{
 
   constructor(
     public _auth: AuthService,
-    private userService: UserService
+    public userService: UserService,
   ) {}
 
   ngOnInit() {

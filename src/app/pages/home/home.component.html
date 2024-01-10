@@ -1,33 +1,8 @@
 <div class="wrapper">
-
-  <div class="sidebar">
-    <div class="inner-container">
-
-      <div class="logo">
-        <img src="assets/icons/icon-movie.png">
-      </div>
-
-      <div class="icons">
-        Icon1 Icon2 Icon3 Icon4
-      </div>
-
-      <div class="user-image" *ngIf="_auth.isAuthenticated$ | async" routerLink="/account">
-        <img src="{{loggedInUser.picture}}">
-      </div>
-
-      <div class="user-image" *ngIf="!(_auth.isAuthenticated$ | async)">
-        <i class="ph ph-user svg-icon" (click)="_auth.loginWithPopup()"></i>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="content-container">
-    <p *ngIf="!(_auth.isAuthenticated$ | async)">
-      {{'messageUserNotLoggedIn' | translate}}
-    </p>
-    <p *ngIf="_auth.isAuthenticated$ | async">
-      {{loggedInUser.given_name}}, {{'messageUserLoggedIn' | translate}}
-    </p>
-  </div>
+  <p *ngIf="!(_auth.isAuthenticated$ | async)">
+    {{'messageUserNotLoggedIn' | transloco}}
+  </p>
+  <p *ngIf="_auth.isAuthenticated$ | async">
+    {{loggedInUser.given_name}}, {{'messageUserLoggedIn' | transloco}}
+  </p>
 </div>

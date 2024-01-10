@@ -1,0 +1,156 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+
+  .sidebar {
+    flex: 1;
+    color: #ffffffff;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+
+    .inner-container {
+      max-width: 96px;
+      height: 85vh;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 32px;
+      margin: 32px auto;
+      padding: 20px 5px;
+      border-radius: 20px;
+
+      background-color: #161D2F;
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .logo {
+        padding: 10px;
+        text-align: left;
+        margin-bottom: 75px;
+
+        img {
+          cursor: pointer;
+          transition: filter 0.5s;
+        }
+
+        img:hover {
+          filter: contrast(200%);
+        }
+      }
+
+      .icons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        align-items: center;
+        padding: 10px;
+
+        img {
+          cursor: pointer;
+          transition: filter 0.3s;
+        }
+
+        img:hover {
+          filter: brightness(350%);
+        }
+      }
+
+      .user-image {
+        text-align: right;
+
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 2px solid #ffffffff;
+          cursor: pointer;
+        }
+
+        .svg-icon {
+          color: #ffffff;
+          font-size: 40px;
+          border: 2px solid white;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .content-container {
+    flex: 9;
+    color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+
+    .sidebar {
+      order: -1;
+
+      .inner-container {
+        max-width: 100%;
+        height: max-content;
+        margin: 25px;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        flex-direction: row;
+
+        .icons {
+          width: 100%;
+        }
+
+        .main-route {
+          width: 100%;
+          display: flex;
+
+          .logo {
+            width: max-content;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+
+            img {
+              width: 20px;
+            }
+          }
+
+          .icons {
+            gap: 20px;
+            flex-direction: row;
+
+            img {
+              width: 10px;
+              height: 10px;
+            }
+          }
+        }
+
+        .user-image {
+          display: flex;
+
+          img {
+            width: 20px;
+            height: 20px;
+          }
+
+          .svg-icon {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
