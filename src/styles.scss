@@ -6,13 +6,19 @@
   font-style: normal;
 }
 
+$pure-white: #ffffff;
+$red: #FC4747;
+$dark-blue: #10141E;
+$greyish-blue: #5A698F;
+$semi-dark-blue: #161D2F;
+$black: #000000;
+
 html, body {
   height: 100%;
   margin: 0;
 }
 
 body {
-  color: #ffffff;
-  background-color: #10141E;
-  font-family: 'Outfit', sans-serif;
+  color: $pure-white;
+  background-color: $dark-blue;
 }

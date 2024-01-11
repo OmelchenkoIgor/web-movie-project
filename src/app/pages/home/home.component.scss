@@ -1,3 +1,5 @@
+@import '../../../styles';
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -5,9 +7,7 @@
   text-align: center;
 
   .text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 100px auto;
 
     p {
       max-width: 450px;
@@ -21,27 +21,27 @@
       gap: 28px;
 
       border: none;
-      background-color: #10141E;
+      background-color: $dark-blue;
 
       input {
         border-radius: 0;
 
-        color: #ffffff;
-        background-color: #10141E;
+        color: $pure-white;
+        background-color: $dark-blue;
       }
 
       input:focus {
-        box-shadow: 0 2px #5A698F !important;
+        box-shadow: 0 2px $greyish-blue !important;
       }
 
       span {
         font-size: 24px;
-        color: #ffffff;
+        color: $pure-white;
       }
     }
 
     .ant-input {
-      caret-color: #FC4747;
+      caret-color: $red;
     }
 
     .ant-input-affix-wrapper {

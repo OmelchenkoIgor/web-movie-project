@@ -1,3 +1,6 @@
+@import '../styles';
+
+
 .wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -5,7 +8,7 @@
 
   .sidebar {
     flex: 1;
-    color: #ffffffff;
+    color: $pure-white;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
@@ -21,7 +24,7 @@
       padding: 20px 5px;
       border-radius: 20px;
 
-      background-color: #161D2F;
+      background-color: $semi-dark-blue;
 
       display: flex;
       align-items: center;
@@ -58,14 +61,14 @@
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          border: 2px solid #ffffffff;
+          border: 2px solid $pure-white;
           cursor: pointer;
         }
 
         .svg-icon {
-          color: #ffffff;
+          color: $pure-white;
           font-size: 40px;
-          border: 2px solid white;
+          border: 2px solid $pure-white;
           border-radius: 50%;
           cursor: pointer;
         }
@@ -75,7 +78,7 @@
 
   .content {
     flex: 20;
-    color: #ffffff;
+    color: $pure-white;
     padding: 60px 20px 20px 20px;
     box-sizing: border-box;
   }
