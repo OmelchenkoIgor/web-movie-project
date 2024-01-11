@@ -1,8 +1,20 @@
 <div class="wrapper">
-  <p *ngIf="!(_auth.isAuthenticated$ | async)">
-    {{'messageUserNotLoggedIn' | transloco}}
-  </p>
-  <p *ngIf="_auth.isAuthenticated$ | async">
-    {{loggedInUser.given_name}}, {{'messageUserLoggedIn' | transloco}}
-  </p>
+  <div class="search-container">
+    <nz-input-group [nzSuffix]="suffixIconSearch">
+      <input type="text" nz-input [placeholder]="'homeInputPlaceholder' | transloco"/>
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <span nz-icon nzType="search"></span>
+    </ng-template>
+  </div>
+
+  <div class="text">
+    <p *ngIf="!(_auth.isAuthenticated$ | async)">
+      {{'messageUserNotLoggedIn' | transloco}}
+    </p>
+    <p *ngIf="_auth.isAuthenticated$ | async">
+      {{loggedInUser.given_name}}, {{'messageUserLoggedIn' | transloco}}
+    </p>
+  </div>
 </div>
+

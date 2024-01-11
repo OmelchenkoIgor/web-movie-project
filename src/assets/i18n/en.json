@@ -9,5 +9,6 @@
   "messageUserLoggedIn": "you are already logged in, thank you for your support! Wait for the next site updates...\nP.S. a small site developer)",
   "tv page": "TV page!",
   "movies page": "Movies page!",
-  "bookmarks page": "Bookmarks page"
+  "bookmarks page": "Bookmarks page",
+  "homeInputPlaceholder": "Search for movies or TV series"
 }

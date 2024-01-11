@@ -1,9 +1,55 @@
 .wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
 
-  p {
-    max-width: 450px;
+  .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      max-width: 450px;
+    }
+  }
+
+  .search-container {
+    nz-input-group {
+      height: 32px;
+      padding: 0;
+      gap: 28px;
+
+      border: none;
+      background-color: #10141E;
+
+      input {
+        border-radius: 0;
+
+        color: #ffffff;
+        background-color: #10141E;
+      }
+
+      input:focus {
+        box-shadow: 0 2px #5A698F !important;
+      }
+
+      span {
+        font-size: 24px;
+        color: #ffffff;
+      }
+    }
+
+    .ant-input {
+      caret-color: #FC4747;
+    }
+
+    .ant-input-affix-wrapper {
+      flex-direction: row-reverse;
+    }
+
+    .ant-input-affix-wrapper-focused {
+      box-shadow: none !important;
+    }
   }
 }
