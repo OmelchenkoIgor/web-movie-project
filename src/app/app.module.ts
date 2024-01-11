@@ -7,6 +7,9 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './pages/home/home.component';
 import {AccountComponent} from './pages/account/account.component';
+import {MoviesComponent} from './pages/movies/movies.component';
+import {TvComponent} from './pages/tv/tv.component';
+import {BookmarksComponent} from './pages/bookmarks/bookmarks.component';
 
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from '@angular/common/http';
@@ -22,6 +25,9 @@ import {TranslocoRootModule} from './transloco-root.module';
     AppComponent,
     HomeComponent,
     AccountComponent,
+    MoviesComponent,
+    TvComponent,
+    BookmarksComponent
   ],
   imports: [
     BrowserModule,

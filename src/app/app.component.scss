@@ -31,17 +31,7 @@
 
       .logo {
         padding: 10px;
-        text-align: left;
         margin-bottom: 75px;
-
-        img {
-          cursor: pointer;
-          transition: filter 0.5s;
-        }
-
-        img:hover {
-          filter: contrast(200%);
-        }
       }
 
       .icons {
@@ -58,7 +48,7 @@
         }
 
         img:hover {
-          filter: brightness(350%);
+          filter: brightness(350%) !important;
         }
       }
 
@@ -84,7 +74,7 @@
     }
   }
 
-  .content-container {
+  .content {
     flex: 9;
     color: #ffffff;
     padding: 20px;
@@ -123,7 +113,7 @@
             margin-bottom: 0;
 
             img {
-              width: 20px;
+              width: 25px;
             }
           }
 
@@ -132,8 +122,8 @@
             flex-direction: row;
 
             img {
-              width: 10px;
-              height: 10px;
+              width: 15px;
+              height: 15px;
             }
           }
         }
@@ -142,12 +132,12 @@
           display: flex;
 
           img {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
           }
 
           .svg-icon {
-            font-size: 20px;
+            font-size: 25px;
           }
         }
       }

@@ -5,6 +5,9 @@
   "email": "Email",
   "logout" : "Log out",
   "settings" : "Website settings",
-  "messageUserNotLoggedIn": "Hello, you have landed on the future homepage of the miracle site...\n      It is not ready yet, but you can register in the system)",
-  "messageUserLoggedIn": "you are logged in, thank you for your support!"
+  "messageUserNotLoggedIn": "Hello, you have landed on the future homepage of the miracle site...\nIt is not ready yet, but you can register in the system)",
+  "messageUserLoggedIn": "you are already logged in, thank you for your support! Wait for the next site updates...\nP.S. a small site developer)",
+  "tv page": "TV page!",
+  "movies page": "Movies page!",
+  "bookmarks page": "Bookmarks page"
 }

@@ -3,15 +3,28 @@
   <div class="sidebar" *ngIf="!isAccountPage()">
     <div class="inner-container">
       <div class="main-route">
+
         <div class="logo">
-          <img src="assets/icons/icon-movie.png" routerLink="/home">
+          <img src="assets/icons/icon-movie.png">
         </div>
 
         <div class="icons">
-          <img src="assets/icons/icon-home.png">
-          <img src="assets/icons/icon-movies.png">
-          <img src="assets/icons/icon-tv.png">
-          <img src="assets/icons/icon-bookmarks.png">
+          <img
+            routerLink="/home"
+            src="assets/icons/icon-home.png"
+            [ngStyle]="{'filter': isCurrentPage('/home') ? 'brightness(350%)' : 'none'}">
+          <img
+            routerLink="/movies"
+            src="assets/icons/icon-movies.png"
+            [ngStyle]="{'filter': isCurrentPage('/movies') ? 'brightness(350%)' : 'none'}">
+          <img
+            routerLink="/tv"
+            src="assets/icons/icon-tv.png"
+            [ngStyle]="{'filter': isCurrentPage('/tv') ? 'brightness(350%)' : 'none'}">
+          <img
+            routerLink="/bookmarks"
+            src="assets/icons/icon-bookmarks.png"
+            [ngStyle]="{'filter': isCurrentPage('/bookmarks') ? 'brightness(350%)' : 'none'}">
         </div>
       </div>
 
@@ -27,7 +40,7 @@
   </div>
 
 
-  <div class="content-container">
+  <div class="content">
     <router-outlet></router-outlet>
   </div>
 </div>

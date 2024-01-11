@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '@auth0/auth0-angular';
 import {UserService} from './services/user/user.service';
 import {TranslocoService} from '@ngneat/transloco';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +27,15 @@ export class AppComponent implements OnInit {
         this.translocoService.setActiveLang(savedLanguage);
       }
     }
+
+    this.router.events.subscribe(event =>{
+      if(event instanceof NavigationEnd) {
+        this.isCurrentPage('/home');
+        this.isCurrentPage('/movies');
+        this.isCurrentPage('/tv');
+        this.isCurrentPage('/bookmarks');
+      }
+    });
   }
 
   ngOnInit() {
@@ -41,5 +50,9 @@ export class AppComponent implements OnInit {
 
   public isAccountPage(): boolean {
     return this.router.url.includes('/account');
+  }
+
+  public isCurrentPage(path: string) : boolean {
+    return this.router.url === path;
   }
 }
