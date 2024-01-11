@@ -88,14 +88,16 @@
 
     .sidebar {
       order: -1;
+      padding: 0;
 
       .inner-container {
         max-width: 100%;
         height: max-content;
-        margin: 25px;
+        margin: 0;
         left: 0;
         right: 0;
         padding: 10px;
+        border-radius: 0;
         flex-direction: row;
 
         .icons {
