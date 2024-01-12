@@ -1,6 +1,5 @@
 @import '../styles';
 
-
 .wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -23,9 +22,7 @@
       margin: 32px auto;
       padding: 20px 5px;
       border-radius: 20px;
-
       background-color: $semi-dark-blue;
-
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -47,30 +44,28 @@
         img {
           cursor: pointer;
           transition: filter 0.3s;
-        }
 
-        img:hover {
-          filter: brightness(350%) !important;
+          &:hover {
+            filter: brightness(350%) !important;
+          }
         }
       }
 
       .user-image {
         text-align: right;
 
-        img {
+        img,
+        .svg-icon {
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          border: 2px solid $pure-white;
           cursor: pointer;
+          border: 2px solid $pure-white;
         }
 
         .svg-icon {
           color: $pure-white;
           font-size: 40px;
-          border: 2px solid $pure-white;
-          border-radius: 50%;
-          cursor: pointer;
         }
       }
     }
@@ -82,10 +77,8 @@
     padding: 60px 20px 20px 20px;
     box-sizing: border-box;
   }
-}
 
-@media (max-width: 768px) {
-  .wrapper {
+  @media (max-width: 768px) {
     flex-direction: column;
 
     .sidebar {
@@ -135,7 +128,8 @@
         .user-image {
           display: flex;
 
-          img {
+          img,
+          .svg-icon {
             width: 25px;
             height: 25px;
           }

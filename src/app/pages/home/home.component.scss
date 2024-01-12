@@ -19,19 +19,17 @@
       height: 32px;
       padding: 0;
       gap: 28px;
-
       border: none;
       background-color: $dark-blue;
 
       input {
         border-radius: 0;
-
         color: $pure-white;
         background-color: $dark-blue;
-      }
 
-      input:focus {
-        box-shadow: 0 2px $greyish-blue !important;
+        &:focus {
+          box-shadow: 0 2px $greyish-blue !important;
+        }
       }
 
       span {
@@ -46,10 +44,10 @@
 
     .ant-input-affix-wrapper {
       flex-direction: row-reverse;
-    }
 
-    .ant-input-affix-wrapper-focused {
-      box-shadow: none !important;
+      &-focused {
+        box-shadow: none !important;
+      }
     }
   }
 }
