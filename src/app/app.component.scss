@@ -94,6 +94,7 @@
         padding: 10px;
         border-radius: 0;
         flex-direction: row;
+        z-index: 999;
 
         .icons {
           width: 100%;
@@ -132,13 +133,21 @@
           .svg-icon {
             width: 25px;
             height: 25px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
 
           .svg-icon {
-            font-size: 25px;
+            font-size: 20px;
           }
         }
       }
+    }
+
+    .content {
+      padding: 60px 10px 10px 10px;
     }
   }
 }

@@ -14,7 +14,7 @@
     }
   }
 
-  .search-container {
+  &__search {
     nz-input-group {
       height: 32px;
       padding: 0;
@@ -23,6 +23,7 @@
       background-color: $dark-blue;
 
       input {
+        font-size: 24px;
         border-radius: 0;
         color: $pure-white;
         background-color: $dark-blue;
@@ -33,7 +34,7 @@
       }
 
       span {
-        font-size: 24px;
+        font-size: 25px;
         color: $pure-white;
       }
     }
@@ -47,6 +48,68 @@
 
       &-focused {
         box-shadow: none !important;
+      }
+    }
+  }
+
+  .movie__container {
+    .message {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 35px;
+
+      p {
+        margin: 0;
+        font-size: 24px;
+        text-align: left;
+        font-weight: 100;
+      }
+    }
+
+    .movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+
+      .card {
+
+        background-color: #5a698f;
+      }
+    }
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+
+    &__search {
+
+      nz-input-group {
+        input {
+          font-size: 12px;
+        }
+
+        span {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .movie__container {
+      .message {
+        margin-top: 24px;
+
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .movies {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 16px;
       }
     }
   }

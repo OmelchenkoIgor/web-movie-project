@@ -1,20 +1,121 @@
 <div class="wrapper">
-  <div class="search-container">
-    <nz-input-group [nzSuffix]="suffixIconSearch">
-      <input type="text" nz-input [placeholder]="'homeInputPlaceholder' | transloco"/>
-    </nz-input-group>
-    <ng-template #suffixIconSearch>
-      <span nz-icon nzType="search"></span>
-    </ng-template>
-  </div>
+    <div class="wrapper__search">
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input type="text" nz-input [placeholder]="'homeInputPlaceholder' | transloco"/>
+        </nz-input-group>
+        <ng-template #suffixIconSearch>
+            <span nz-icon nzType="search"></span>
+        </ng-template>
+    </div>
 
-  <div class="text">
-    <p *ngIf="!(_auth.isAuthenticated$ | async)">
-      {{'messageUserNotLoggedIn' | transloco}}
-    </p>
-    <p *ngIf="_auth.isAuthenticated$ | async">
-      {{loggedInUser.given_name}}, {{'messageUserLoggedIn' | transloco}}
-    </p>
-  </div>
+    <div class="movie__container">
+        <div class="message">
+            <p>
+                {{'message recommendations' | transloco}}
+            </p>
+        </div>
+
+        <div class="movies">
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+
+            <div class="card">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
+                necessitatibus reiciendis.
+            </div>
+        </div>
+    </div>
+
+
+    <div class="text">
+        <p *ngIf="!(_auth.isAuthenticated$ | async)">
+            {{'messageUserNotLoggedIn' | transloco}}
+        </p>
+        <p *ngIf="_auth.isAuthenticated$ | async">
+            {{loggedInUser.given_name}}, {{'messageUserLoggedIn' | transloco}}
+        </p>
+    </div>
 </div>
 
