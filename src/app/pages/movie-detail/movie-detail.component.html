@@ -1,0 +1,11 @@
+<div *ngIf="movie">
+  <h1>{{ movie.title }}</h1>
+  <img [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}">
+  <p><strong>Опис:</strong> {{ movie.overview }}</p>
+  <p><strong>Рейтинг:</strong> {{ movie.vote_average }}</p>
+  <p><strong>Дата релізу:</strong> {{ movie.release_date }}</p>
+  <!-- Відображення відео -->
+  <div *ngIf="videoUrl">
+    <iframe width="560" height="315" [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>

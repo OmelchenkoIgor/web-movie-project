@@ -68,14 +68,19 @@
 
     .movies {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 16px;
 
       .card {
-
         background-color: #5a698f;
       }
+
+      .movie-image {
+        width: 100%;
+        height: auto;
+      }
     }
+
   }
 
 

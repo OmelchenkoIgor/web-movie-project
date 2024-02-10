@@ -17,6 +17,7 @@ import {AccountComponent} from './pages/account/account.component';
 import {MoviesComponent} from './pages/movies/movies.component';
 import {TvComponent} from './pages/tv/tv.component';
 import {BookmarksComponent} from './pages/bookmarks/bookmarks.component';
+import {MovieDetailComponent} from './pages/movie-detail/movie-detail.component'
 
 import {NZ_I18N} from 'ng-zorro-antd/i18n';
 import {en_US} from 'ng-zorro-antd/i18n';
@@ -27,38 +28,39 @@ registerLocaleData(en);
 
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        AccountComponent,
-        MoviesComponent,
-        TvComponent,
-        BookmarksComponent
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        MatSnackBarModule,
-        BrowserAnimationsModule,
-        NoopAnimationsModule,
-        AuthModule.forRoot({
-            domain: 'dev-4uj7xd5j1fodgl1b.us.auth0.com',
-            clientId: 'T4PZc080dZ5OfaDWRSv6RwvJGKUebEi7',
-            authorizationParams: {
-                redirect_uri: window.location.origin
-            }
-        }),
-        TranslocoRootModule,
-        NzInputModule,
-        NzIconModule
-    ],
-    providers: [
-        {provide: NZ_I18N, useValue: en_US}
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AccountComponent,
+    MoviesComponent,
+    TvComponent,
+    BookmarksComponent,
+    MovieDetailComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    AuthModule.forRoot({
+      domain: 'dev-4uj7xd5j1fodgl1b.us.auth0.com',
+      clientId: 'T4PZc080dZ5OfaDWRSv6RwvJGKUebEi7',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
+    TranslocoRootModule,
+    NzInputModule,
+    NzIconModule
+  ],
+  providers: [
+    {provide: NZ_I18N, useValue: en_US}
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

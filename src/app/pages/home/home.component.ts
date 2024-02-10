@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user/user.service';
 import {AuthService} from '@auth0/auth0-angular';
-import {Router} from "@angular/router";
-
+import {ApiService} from '../../services/api.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +12,13 @@ import {Router} from "@angular/router";
 
 export class HomeComponent implements OnInit {
   public loggedInUser: any;
+  public movies: any;
 
   constructor(
+    public router: Router,
     public _auth: AuthService,
     public userService: UserService,
+    public apiService: ApiService
   ) {
   }
 
@@ -23,5 +26,18 @@ export class HomeComponent implements OnInit {
     this.userService.loggedInUserData$.subscribe((data) => {
       this.loggedInUser = data;
     });
+
+    this.apiService.getPopularMovies().subscribe((data) => {
+      this.movies = data.results;
+    })
+  }
+
+  public getImageUrl(posterPath: string): string {
+    return `${this.apiService.IMG_URL}/${posterPath}`;
+  }
+
+  public goToMovieDetail(movieId: number) {
+    console.log(movieId);
+    this.router.navigate(['/movie', movieId]);
   }
 }

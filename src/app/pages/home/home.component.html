@@ -16,95 +16,10 @@
         </div>
 
         <div class="movies">
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
-
-            <div class="card">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, facilis iusto labore libero
-                necessitatibus reiciendis.
-            </div>
+          <div class="card" *ngFor="let movie of movies" (click)="goToMovieDetail(movie.id)">
+            <img [src]="getImageUrl(movie.poster_path)" class="movie-image">
+            <h3>{{ movie.title }}</h3>
+          </div>
         </div>
     </div>
 

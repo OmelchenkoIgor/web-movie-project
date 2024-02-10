@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import {AuthService} from '@auth0/auth0-angular';
 import {UserService} from './services/user/user.service';
 import {TranslocoService} from '@ngneat/transloco';
@@ -11,6 +11,8 @@ import {NavigationEnd, Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
   public loggedInUser: any;
+
+  number = 0;
 
   constructor(
     public _auth: AuthService,
@@ -28,8 +30,8 @@ export class AppComponent implements OnInit {
       }
     }
 
-    this.router.events.subscribe(event =>{
-      if(event instanceof NavigationEnd) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
         this.isCurrentPage('/home');
         this.isCurrentPage('/movies');
         this.isCurrentPage('/tv');
@@ -45,14 +47,33 @@ export class AppComponent implements OnInit {
         console.log('LoggerIn User', this.loggedInUser);
         this.userService.setLoggedInUserData(this.loggedInUser);
       })
+;
+
+
     }
+    setTimeout( () => {
+      this.testMessage();
+    }, 3000)
+
+    window.addEventListener('message', (event) => {
+      console.log('Received data in AngularApp:', event.data);
+    })
   }
 
   public isAccountPage(): boolean {
     return this.router.url.includes('/account');
   }
 
-  public isCurrentPage(path: string) : boolean {
+  public isCurrentPage(path: string): boolean {
     return this.router.url === path;
+  }
+
+  testMessage() {
+    const testData = {
+      type: 'read'
+    };
+
+    window.parent.postMessage(testData, '*');
+    console.log('Sent message from AngularApp:', testData);
   }
 }
