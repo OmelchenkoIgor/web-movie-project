@@ -15,7 +15,10 @@ export class ApiService {
   }
 
   getPopularMovies(): Observable<any> {
-    const params = new HttpParams().set('api_key', this.API_KEY).set('sort_by', 'popularity.desc');
+    const params = new HttpParams()
+      .set('api_key', this.API_KEY)
+      .set('sort_by', 'popularity.desc');
+
     return this.http.get(
       `${this.BASE_URL}/discover/movie`,
       {params}
@@ -34,6 +37,17 @@ export class ApiService {
     const params = new HttpParams().set('api_key', this.API_KEY);
     return this.http.get(
       `${this.BASE_URL}/movie/${movieId}/videos`,
+      {params}
+    );
+  }
+
+  getMoviesByCriteria(page: number): Observable<any> {
+    let params = new HttpParams()
+      .set('api_key', this.API_KEY)
+      .set('page', page.toString());
+
+    return this.http.get(
+      `${this.BASE_URL}/discover/movie`,
       {params}
     );
   }

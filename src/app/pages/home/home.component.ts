@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../../services/user/user.service';
-import {AuthService} from '@auth0/auth0-angular';
-import {ApiService} from '../../services/api.service';
 import {Router} from '@angular/router';
+import {UserService} from '../../services/user/user.service';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -13,10 +12,11 @@ import {Router} from '@angular/router';
 export class HomeComponent implements OnInit {
   public loggedInUser: any;
   public movies: any;
+  public currentPage: number = 1;
+  public totalPages: number = 5000;
 
   constructor(
     public router: Router,
-    public _auth: AuthService,
     public userService: UserService,
     public apiService: ApiService
   ) {
@@ -29,7 +29,10 @@ export class HomeComponent implements OnInit {
 
     this.apiService.getPopularMovies().subscribe((data) => {
       this.movies = data.results;
-      console.log(this.movies);
+    })
+
+    this.apiService.getMoviesByCriteria(1).subscribe((data) => {
+      this.movies = data.results;
     })
   }
 
@@ -39,5 +42,12 @@ export class HomeComponent implements OnInit {
 
   public goToMovieDetail(movieId: number) {
     this.router.navigate(['/movie', movieId]);
+  }
+
+  public onPageChanged(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.apiService.getMoviesByCriteria(pageNumber).subscribe((data) => {
+      this.movies = data.results;
+    });
   }
 }

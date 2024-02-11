@@ -8,8 +8,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthModule} from '@auth0/auth0-angular';
 import {TranslocoRootModule} from './transloco-root.module';
-import {NzInputModule} from 'ng-zorro-antd/input';
-import {NzIconModule} from 'ng-zorro-antd/icon';
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './pages/home/home.component';
@@ -24,8 +22,11 @@ import {en_US} from 'ng-zorro-antd/i18n';
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
 
-registerLocaleData(en);
+import {NzInputModule} from 'ng-zorro-antd/input';
+import {NzIconModule} from 'ng-zorro-antd/icon';
+import {NzPaginationModule} from 'ng-zorro-antd/pagination';
 
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -37,26 +38,27 @@ registerLocaleData(en);
     BookmarksComponent,
     MovieDetailComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatSnackBarModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    AuthModule.forRoot({
-      domain: 'dev-4uj7xd5j1fodgl1b.us.auth0.com',
-      clientId: 'T4PZc080dZ5OfaDWRSv6RwvJGKUebEi7',
-      authorizationParams: {
-        redirect_uri: window.location.origin
-      }
-    }),
-    TranslocoRootModule,
-    NzInputModule,
-    NzIconModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatSnackBarModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        AuthModule.forRoot({
+            domain: 'dev-4uj7xd5j1fodgl1b.us.auth0.com',
+            clientId: 'T4PZc080dZ5OfaDWRSv6RwvJGKUebEi7',
+            authorizationParams: {
+                redirect_uri: window.location.origin
+            }
+        }),
+        TranslocoRootModule,
+        NzInputModule,
+        NzIconModule,
+        NzPaginationModule
+    ],
   providers: [
     {provide: NZ_I18N, useValue: en_US}
   ],

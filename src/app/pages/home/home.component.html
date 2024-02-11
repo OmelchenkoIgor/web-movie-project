@@ -26,14 +26,20 @@
     </div>
   </div>
 
+  <nz-pagination
+    [nzPageIndex]="currentPage"
+    [nzTotal]="totalPages"
+    (nzPageIndexChange)="onPageChanged($event)">
+  </nz-pagination>
 
-  <div class="text">
-    <p *ngIf="!(_auth.isAuthenticated$ | async)">
-      {{'messageUserNotLoggedIn' | transloco}}
-    </p>
-    <p *ngIf="_auth.isAuthenticated$ | async">
-      {{loggedInUser.given_name}}, {{'messageUserLoggedIn' | transloco}}
-    </p>
-  </div>
+
+<!--  <div class="text">-->
+<!--    <p *ngIf="!(_auth.isAuthenticated$ | async)">-->
+<!--      {{'messageUserNotLoggedIn' | transloco}}-->
+<!--    </p>-->
+<!--    <p *ngIf="_auth.isAuthenticated$ | async">-->
+<!--      {{loggedInUser.given_name}}, {{'messageUserLoggedIn' | transloco}}-->
+<!--    </p>-->
+<!--  </div>-->
 </div>
 
