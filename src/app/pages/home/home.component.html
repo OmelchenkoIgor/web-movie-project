@@ -1,36 +1,39 @@
 <div class="wrapper">
-    <div class="wrapper__search">
-        <nz-input-group [nzSuffix]="suffixIconSearch">
-            <input type="text" nz-input [placeholder]="'homeInputPlaceholder' | transloco"/>
-        </nz-input-group>
-        <ng-template #suffixIconSearch>
-            <span nz-icon nzType="search"></span>
-        </ng-template>
+  <div class="wrapper__search">
+    <nz-input-group [nzSuffix]="suffixIconSearch">
+      <input type="text" nz-input [placeholder]="'homeInputPlaceholder' | transloco"/>
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <span nz-icon nzType="search"></span>
+    </ng-template>
+  </div>
+
+  <div class="movie__container">
+    <div class="message">
+      <p>
+        {{'message recommendations' | transloco}}
+      </p>
     </div>
 
-    <div class="movie__container">
-        <div class="message">
-            <p>
-                {{'message recommendations' | transloco}}
-            </p>
+    <div class="movies">
+      <div class="card" *ngFor="let movie of movies" (click)="goToMovieDetail(movie.id)">
+        <img [src]="getImageUrl(movie.poster_path)" class="movie-image">
+        <div class="description-card">
+          <p>{{movie.release_date}}</p>
+          <h3>{{movie.title}}</h3>
         </div>
-
-        <div class="movies">
-          <div class="card" *ngFor="let movie of movies" (click)="goToMovieDetail(movie.id)">
-            <img [src]="getImageUrl(movie.poster_path)" class="movie-image">
-            <h3>{{ movie.title }}</h3>
-          </div>
-        </div>
+      </div>
     </div>
+  </div>
 
 
-    <div class="text">
-        <p *ngIf="!(_auth.isAuthenticated$ | async)">
-            {{'messageUserNotLoggedIn' | transloco}}
-        </p>
-        <p *ngIf="_auth.isAuthenticated$ | async">
-            {{loggedInUser.given_name}}, {{'messageUserLoggedIn' | transloco}}
-        </p>
-    </div>
+  <div class="text">
+    <p *ngIf="!(_auth.isAuthenticated$ | async)">
+      {{'messageUserNotLoggedIn' | transloco}}
+    </p>
+    <p *ngIf="_auth.isAuthenticated$ | async">
+      {{loggedInUser.given_name}}, {{'messageUserLoggedIn' | transloco}}
+    </p>
+  </div>
 </div>
 

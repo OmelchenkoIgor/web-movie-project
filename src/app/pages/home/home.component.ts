@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
 
     this.apiService.getPopularMovies().subscribe((data) => {
       this.movies = data.results;
+      console.log(this.movies);
     })
   }
 
@@ -37,7 +38,6 @@ export class HomeComponent implements OnInit {
   }
 
   public goToMovieDetail(movieId: number) {
-    console.log(movieId);
     this.router.navigate(['/movie', movieId]);
   }
 }

@@ -24,14 +24,13 @@ export class MovieDetailComponent implements OnInit {
       const movieId = +params['id'];
       this.apiService.getMovieDetails(movieId).subscribe((data: any) => {
         this.movie = data;
-        console.log(data);
+        console.log(this.movie);
       });
 
       this.apiService.getMovieVideos(movieId).subscribe(data => {
-       console.log('video' ,data)
         if (data.results.length > 0) {
           this.firstVideoKey = data.results[0].key;
-          console.log('https://www.youtube.com/embed/'+this.firstVideoKey);
+          console.log(data.results);
           this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.firstVideoKey}`);
         }
       });
@@ -42,9 +41,4 @@ export class MovieDetailComponent implements OnInit {
   public getImageUrl(posterPath: string): string {
     return `${this.apiService.IMG_URL}/${posterPath}`;
   }
-
-  getVideoUrl(key: string): string {
-    return `https://www.youtube.com/embed/${key}`;
-  }
-
 }

@@ -12,8 +12,6 @@ import {NavigationEnd, Router} from '@angular/router';
 export class AppComponent implements OnInit {
   public loggedInUser: any;
 
-  number = 0;
-
   constructor(
     public _auth: AuthService,
     public userService: UserService,
@@ -46,18 +44,8 @@ export class AppComponent implements OnInit {
         this.loggedInUser = data;
         console.log('LoggerIn User', this.loggedInUser);
         this.userService.setLoggedInUserData(this.loggedInUser);
-      })
-;
-
-
+      });
     }
-    setTimeout( () => {
-      this.testMessage();
-    }, 3000)
-
-    window.addEventListener('message', (event) => {
-      console.log('Received data in AngularApp:', event.data);
-    })
   }
 
   public isAccountPage(): boolean {
@@ -66,14 +54,5 @@ export class AppComponent implements OnInit {
 
   public isCurrentPage(path: string): boolean {
     return this.router.url === path;
-  }
-
-  testMessage() {
-    const testData = {
-      type: 'read'
-    };
-
-    window.parent.postMessage(testData, '*');
-    console.log('Sent message from AngularApp:', testData);
   }
 }
