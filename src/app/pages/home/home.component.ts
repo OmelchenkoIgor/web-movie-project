@@ -26,11 +26,7 @@ export class HomeComponent implements OnInit {
     this.userService.loggedInUserData$.subscribe((data) => {
       this.loggedInUser = data;
     });
-
-    this.apiService.getPopularMovies().subscribe((data) => {
-      this.movies = data.results;
-    })
-
+    
     this.apiService.getMoviesByCriteria(1).subscribe((data) => {
       this.movies = data.results;
     })

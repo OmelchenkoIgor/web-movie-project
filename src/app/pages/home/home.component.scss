@@ -56,7 +56,7 @@
     .message {
       display: flex;
       justify-content: flex-start;
-      margin-top: 35px;
+      margin: 35px 0;
 
       p {
         margin: 0;
@@ -104,6 +104,42 @@
       }
     }
   }
+
+  nz-pagination {
+    margin: 35px 0;
+
+    ::ng-deep .ant-pagination-item-link {
+      background-color: $semi-dark-blue;
+      border-color: $semi-dark-blue;
+      color: $pure-white;
+
+
+    }
+
+    ::ng-deep .anticon {
+      color: $red;
+    }
+
+    ::ng-deep .ant-pagination-item-ellipsis {
+      color: $pure-white;
+    }
+
+    ::ng-deep .ant-pagination-item {
+      background-color: $semi-dark-blue;
+      border-color: $semi-dark-blue;
+      a {
+        color: $pure-white;
+      }
+    }
+
+    ::ng-deep .ant-pagination-item-active {
+      background-color: $red;
+      border-color: $semi-dark-blue;
+      a {
+        color: $dark-blue;
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -124,7 +160,7 @@
 
     .movie__container {
       .message {
-        margin-top: 24px;
+        margin: 24px 0;
 
         p {
           font-size: 14px;
@@ -135,6 +171,19 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: 16px;
+      }
+    }
+
+    nz-pagination {
+      margin: 35px 0;
+
+      ::ng-deep .ant-pagination-prev,
+      ::ng-deep .ant-pagination-next {
+        min-width: 12px;
+      }
+
+      ::ng-deep .ant-pagination-item {
+        min-width: 10px;
       }
     }
   }
