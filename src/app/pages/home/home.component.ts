@@ -28,7 +28,8 @@ export class HomeComponent implements OnInit {
       this.loggedInUser = data;
     });
 
-    this.onPageChanged(1);
+    let webParams: any = JSON.parse(localStorage.getItem('web-params') || '{}');
+    this.onPageChanged(webParams.pageNumber ? parseInt(webParams.pageNumber) : 1);
   }
 
   public getImageUrl(posterPath: string): string {
@@ -43,6 +44,10 @@ export class HomeComponent implements OnInit {
     this.currentPage = pageNumber;
     this.apiService.getMoviesByCriteria(pageNumber).subscribe((data) => {
       this.movies = data.results;
+
+      let webParams: any = JSON.parse(localStorage.getItem('web-params') || '{}');
+      webParams.pageNumber = pageNumber;
+      localStorage.setItem('web-params', JSON.stringify(webParams));
     });
   }
 

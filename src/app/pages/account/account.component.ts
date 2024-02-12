@@ -23,10 +23,11 @@ export class AccountComponent implements OnInit {
     });
   }
 
-  public changeLanguage(language: string): void {
+  public changeLanguage(language: string) {
     this.translocoService.setActiveLang(language);
 
-    const webParams = { language };
+    let webParams: any = JSON.parse(localStorage.getItem('web-params') || '{}');
+    webParams.language = language;
     localStorage.setItem('web-params', JSON.stringify(webParams));
   }
 }

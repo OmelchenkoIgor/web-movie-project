@@ -1,4 +1,4 @@
-import {Component, OnInit, Renderer2} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '@auth0/auth0-angular';
 import {UserService} from './services/user/user.service';
 import {TranslocoService} from '@ngneat/transloco';
