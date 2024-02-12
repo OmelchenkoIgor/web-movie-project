@@ -11,19 +11,9 @@ export class ApiService {
   BASE_URL = 'https://api.themoviedb.org/3';
   IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
-  constructor(private http: HttpClient) {
-  }
-
-  getPopularMovies(): Observable<any> {
-    const params = new HttpParams()
-      .set('api_key', this.API_KEY)
-      .set('sort_by', 'popularity.desc');
-
-    return this.http.get(
-      `${this.BASE_URL}/discover/movie`,
-      {params}
-    );
-  }
+  constructor(
+    private http: HttpClient
+  ) {}
 
   getMovieDetails(movieId: number): Observable<any> {
     const params = new HttpParams().set('api_key', this.API_KEY);
@@ -51,4 +41,15 @@ export class ApiService {
       {params}
     );
   }
+
+  public searchMovies(query: string): Observable<any> {
+    const params = new HttpParams()
+      .set('api_key', this.API_KEY)
+      .set('query', query);
+    return this.http.get(
+      `${this.BASE_URL}/search/movie`,
+      { params }
+    );
+  }
+
 }

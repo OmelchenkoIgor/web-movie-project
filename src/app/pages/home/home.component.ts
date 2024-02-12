@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   public movies: any;
   public currentPage: number = 1;
   public totalPages: number = 5000;
+  public searchQuery: string = '';
 
   constructor(
     public router: Router,
@@ -26,10 +27,8 @@ export class HomeComponent implements OnInit {
     this.userService.loggedInUserData$.subscribe((data) => {
       this.loggedInUser = data;
     });
-    
-    this.apiService.getMoviesByCriteria(1).subscribe((data) => {
-      this.movies = data.results;
-    })
+
+    this.onPageChanged(1);
   }
 
   public getImageUrl(posterPath: string): string {
@@ -45,5 +44,16 @@ export class HomeComponent implements OnInit {
     this.apiService.getMoviesByCriteria(pageNumber).subscribe((data) => {
       this.movies = data.results;
     });
+  }
+
+  public onSearch() {
+    if (this.searchQuery.trim() !== '') {
+      this.apiService.searchMovies(this.searchQuery).subscribe((data) => {
+        this.movies = data.results;
+        this.totalPages = data.total_pages;
+      });
+    } else {
+      this.onPageChanged(1);
+    }
   }
 }

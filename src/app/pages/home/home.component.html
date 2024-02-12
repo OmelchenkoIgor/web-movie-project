@@ -1,7 +1,12 @@
 <div class="wrapper">
   <div class="wrapper__search">
     <nz-input-group [nzSuffix]="suffixIconSearch">
-      <input type="text" nz-input [placeholder]="'homeInputPlaceholder' | transloco"/>
+      <input
+        type="text" nz-input
+        [(ngModel)]="searchQuery"
+        (input)="onSearch()"
+        [placeholder]="'homeInputPlaceholder' | transloco"
+      />
     </nz-input-group>
     <ng-template #suffixIconSearch>
       <span nz-icon nzType="search"></span>
