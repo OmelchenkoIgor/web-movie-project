@@ -1,11 +1,51 @@
-<div *ngIf="movie">
-  <h1>{{ movie.title }}</h1>
-  <img [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}">
-  <p><strong>Опис:</strong> {{ movie.overview }}</p>
-  <p><strong>Рейтинг:</strong> {{ movie.vote_average }}</p>
-  <p><strong>Дата релізу:</strong> {{ movie.release_date }}</p>
+<div *ngIf="isMobileScreen" class="back-button-container">
 
-  <div *ngIf="videoUrl">
+  <button routerLink="/home" class="btn-back">
+    <i class="ph ph-arrow-left left-arrow"></i>
+    {{'goBack' | transloco}}
+  </button>
+</div>
+<div *ngIf="movie" class="movie">
+  <div class="movie-info">
+    <div class="movie-img">
+      <img [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}">
+    </div>
+
+    <div class="movie-description">
+      <div class="short-header">
+        <div>
+          <h1>{{ movie.title }}</h1>
+        </div>
+
+        <div class="rating">
+          <p>IMDB <span>{{ movie.vote_average.toFixed(1) }}</span></p>
+        </div>
+      </div>
+
+      <div class="short-list">
+        <p class="release-date"><strong>{{ 'year' | transloco}}: </strong>
+          <span>{{ movie.release_date | date: 'yyyy' }} </span>
+          <span>({{movie.status}})</span>
+        </p>
+
+        <p class="genres"><strong>{{ 'genre' | transloco }}: </strong>
+          <span *ngFor="let genre of movie.genres; let last = last">{{ genre.name }}{{ !last ? ', ' : '' }}</span>
+        </p>
+
+        <p class="production-countries"><strong>{{'country' | transloco}}: </strong>
+          <span
+            *ngFor="let country of movie.production_countries; let last = last">{{ country.name }}{{ !last ? ', ' : '' }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="description">
+    <p>{{movie.overview}}</p>
+  </div>
+
+  <div *ngIf="videoUrl" class="video">
     <iframe width="560" height="315" [src]="videoUrl" allowfullscreen></iframe>
   </div>
 </div>

@@ -11,5 +11,11 @@
   "movies page": "Movies page!",
   "bookmarks page": "Bookmarks page",
   "homeInputPlaceholder": "Search for movies or TV series",
-  "message recommendations": "Recommended for you"
+  "message recommendations": "Recommended for you",
+  "year": "Year",
+  "genre": "Genre",
+  "description": "Description",
+  "rating": "Rating",
+  "country": "Country",
+  "goBack": "Go back"
 }

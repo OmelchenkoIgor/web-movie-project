@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
@@ -12,6 +12,7 @@ export class MovieDetailComponent implements OnInit {
   movie: any;
   firstVideoKey: string | undefined;
   videoUrl: SafeResourceUrl | undefined;
+  isMobileScreen: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,11 +35,21 @@ export class MovieDetailComponent implements OnInit {
           this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.firstVideoKey}`);
         }
       });
-
     });
+
+    this.checkScreenSize();
   }
 
   public getImageUrl(posterPath: string): string {
     return `${this.apiService.IMG_URL}/${posterPath}`;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    this.isMobileScreen = window.innerWidth < 768;
   }
 }
