@@ -6,9 +6,10 @@
   display: inline-block;
   position: relative;
 
-  border-bottom: 2px solid $greyish-blue;
-
   .btn-back {
+    display: flex;
+    gap: 5px;
+    align-items: center;
     padding-left: 0;
 
     color: $greyish-blue;
@@ -47,6 +48,7 @@
 
       .short-header {
         display: flex;
+        flex-wrap: wrap;
         align-items: flex-start;
         justify-content: space-between;
 
