@@ -4,7 +4,7 @@
       <input
         type="text" nz-input
         [(ngModel)]="searchQuery"
-        (input)="onSearch()"
+        (input)="onSearch(language)"
         [placeholder]="'homeInputPlaceholder' | transloco"
       />
     </nz-input-group>
@@ -34,7 +34,7 @@
   <nz-pagination
     [nzPageIndex]="currentPage"
     [nzTotal]="totalPages"
-    (nzPageIndexChange)="onPageChanged($event)">
+    (nzPageIndexChange)="onPageChanged($event, language)">
   </nz-pagination>
 
 

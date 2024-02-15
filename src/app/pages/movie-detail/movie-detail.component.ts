@@ -21,14 +21,19 @@ export class MovieDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    let webParams: any = JSON.parse(localStorage.getItem('web-params') || '{}');
+
+    let language = webParams.language || 'en';
+
+
     this.route.params.subscribe(params => {
       const movieId = +params['id'];
-      this.apiService.getMovieDetails(movieId).subscribe((data: any) => {
+      this.apiService.getMovieDetails(movieId, language).subscribe((data: any) => {
         this.movie = data;
         console.log(this.movie);
       });
 
-      this.apiService.getMovieVideos(movieId).subscribe(data => {
+      this.apiService.getMovieVideos(movieId, language).subscribe(data => {
         if (data.results.length > 0) {
           this.firstVideoKey = data.results[0].key;
           console.log(data.results);

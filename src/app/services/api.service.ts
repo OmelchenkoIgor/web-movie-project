@@ -15,37 +15,42 @@ export class ApiService {
     private http: HttpClient
   ) {}
 
-  getMovieDetails(movieId: number): Observable<any> {
-    const params = new HttpParams().set('api_key', this.API_KEY);
+  getMovieDetails(movieId: number, language: string): Observable<any> {
+    const params = new HttpParams()
+      .set('api_key', this.API_KEY)
+      .set('language', language);
     return this.http.get(
       `${this.BASE_URL}/movie/${movieId}`,
       {params}
     );
   }
 
-  getMovieVideos(movieId: number): Observable<any> {
-    const params = new HttpParams().set('api_key', this.API_KEY);
+  getMovieVideos(movieId: number, language: string): Observable<any> {
+    const params = new HttpParams()
+      .set('api_key', this.API_KEY)
+      .set('language', language);
     return this.http.get(
       `${this.BASE_URL}/movie/${movieId}/videos`,
       {params}
     );
   }
 
-  getMoviesByCriteria(page: number): Observable<any> {
+  getMoviesByCriteria(page: number, language: string): Observable<any> {
     let params = new HttpParams()
       .set('api_key', this.API_KEY)
-      .set('page', page.toString());
-
+      .set('page', page.toString())
+      .set('language', language);
     return this.http.get(
       `${this.BASE_URL}/discover/movie`,
       {params}
     );
   }
 
-  public searchMovies(query: string): Observable<any> {
+  public searchMovies(query: string, language: string): Observable<any> {
     const params = new HttpParams()
       .set('api_key', this.API_KEY)
-      .set('query', query);
+      .set('query', query)
+      .set('language', language);
     return this.http.get(
       `${this.BASE_URL}/search/movie`,
       { params }

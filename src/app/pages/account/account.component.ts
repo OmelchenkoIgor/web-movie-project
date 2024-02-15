@@ -23,9 +23,9 @@ export class AccountComponent implements OnInit {
       this.loggedInUser = data;
     });
 
-    const webParamsString = localStorage.getItem('web-params');
-    const webParams = webParamsString ? JSON.parse(webParamsString) : {};
-    this.language = webParams.language ? webParams.language : 'en';
+
+    const webParams = JSON.parse(localStorage.getItem('web-params') || '{}');
+    this.language = webParams.language || 'en';
   }
 
   public changeLanguage(language: string) {

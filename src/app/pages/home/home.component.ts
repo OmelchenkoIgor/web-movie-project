@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   public currentPage: number = 1;
   public totalPages: number = 5000;
   public searchQuery: string = '';
+  public language: any;
 
   constructor(
     public router: Router,
@@ -29,7 +30,8 @@ export class HomeComponent implements OnInit {
     });
 
     let webParams: any = JSON.parse(localStorage.getItem('web-params') || '{}');
-    this.onPageChanged(webParams.pageNumber ? parseInt(webParams.pageNumber) : 1);
+    this.language = webParams.language || 'en';
+    this.onPageChanged(webParams.pageNumber ? parseInt(webParams.pageNumber) : 1, this.language);
   }
 
   public getImageUrl(posterPath: string): string {
@@ -40,9 +42,9 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/movie', movieId]);
   }
 
-  public onPageChanged(pageNumber: number) {
+  public onPageChanged(pageNumber: number, language: string) {
     this.currentPage = pageNumber;
-    this.apiService.getMoviesByCriteria(pageNumber).subscribe((data) => {
+    this.apiService.getMoviesByCriteria(pageNumber, language).subscribe((data) => {
       this.movies = data.results;
 
       let webParams: any = JSON.parse(localStorage.getItem('web-params') || '{}');
@@ -51,14 +53,14 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  public onSearch() {
+  public onSearch(language: string) {
     if (this.searchQuery.trim() !== '') {
-      this.apiService.searchMovies(this.searchQuery).subscribe((data) => {
+      this.apiService.searchMovies(this.searchQuery, language).subscribe((data) => {
         this.movies = data.results;
         this.totalPages = data.total_pages;
       });
     } else {
-      this.onPageChanged(1);
+      this.onPageChanged(1, language);
     }
   }
 }
