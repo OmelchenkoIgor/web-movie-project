@@ -22,4 +22,18 @@ html, body {
 body {
   color: $pure-white;
   background-color: $dark-blue;
+
+  nz-option-container {
+    background-color: $greyish-blue !important;
+
+    nz-option-item {
+      color: $pure-white !important;
+      background-color: $semi-dark-blue !important;
+    }
+  }
 }
+
+
+
+
+

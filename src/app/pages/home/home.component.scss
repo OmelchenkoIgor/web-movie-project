@@ -144,6 +144,7 @@
   .wrapper {
 
     &__search {
+      margin-top: 15px;
 
       nz-input-group {
         input {
@@ -158,7 +159,7 @@
 
     .movie__container {
       .message {
-        margin: 24px 0;
+        margin: 15px 0;
 
         p {
           font-size: 14px;

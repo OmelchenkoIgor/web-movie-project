@@ -1,28 +1,29 @@
 @import '../../../styles';
 
 .wrapper {
-
   .user-container {
-    padding: 30px;
-    border-radius: 20px;
+    .back-button-container {
+      display: inline-block;
+      position: relative;
 
-    background-color: $semi-dark-blue;
+      .btn-back {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        padding-left: 0;
 
-    .home-container {
-      display: flex;
-      justify-content: end;
-
-      .svg-icon {
-        font-size: 40px;
+        color: $greyish-blue;
+        background-color: #10141E;
+        border: none;
+        font-weight: 600;
 
         cursor: pointer;
-        border-radius: 30%;
-        color: $greyish-blue;
-        transition: color 1s;
+        transition: transform 0.3s ease;
       }
 
-      .svg-icon:hover {
+      .btn-back:hover {
         color: $pure-white;
+        transform: translateX(5px);
       }
     }
 
@@ -31,23 +32,22 @@
       flex-wrap: wrap;
       flex-direction: row;
 
+      margin-top: 15px;
       gap: 20px;
 
       .user-image img {
-        width: 100px;
-        height: 100px;
-
-        border-radius: 30%;
-        border: 2px solid $greyish-blue;
+        border-radius: 10px;
       }
 
       .user-description {
         color: $pure-white;
 
         p {
-          font-weight: 700;
+          font-size: 20px;
+          font-weight: 500;
 
           span {
+            color: $greyish-blue;;
             font-weight: 100;
           }
         }
@@ -56,36 +56,61 @@
 
     .settings-container {
       margin: 20px 0;
-      padding: 20px 0;
+      padding-bottom: 20px;
       color: $pure-white;
       border-top: 2px solid $greyish-blue;
       border-bottom: 2px solid $greyish-blue;
 
       p {
         margin-top: 0;
-        font-weight: 700;
+
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      p:first-child {
+        font-size: 25px;
       }
 
       .lang-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 5px;
+        gap: 15px;
 
-        button {
-          width: 150px;
-          height: 30px;
-          border-radius: 5px;
-          border: none;
-          color: $pure-white;
-          background-color: $red;
-          cursor: pointer;
-          transition: background-color 1s, color 1s;
+        .language {
+          display: flex;
+          align-items: center;
+
+          p {
+            margin: 0;
+
+            font-size: 16px;
+          }
         }
 
-        button:hover {
-          color: $black;
-          background-color: $pure-white;
+        nz-select {
+          ::ng-deep .ant-select-selector {
+            width: 150px;
+
+            color: $pure-white;
+            border-color: $greyish-blue;
+            background-color: $semi-dark-blue;
+          }
+
+          ::ng-deep .ant-select-selector:hover {
+            box-shadow: 0 0 0 2px $greyish-blue;
+          }
+
+          ::ng-deep .ant-select-arrow {
+            color: $pure-white;
+          }
+
+          ::ng-deep .ant-select-item {
+
+          }
         }
+
+
       }
     }
 
@@ -111,9 +136,6 @@
 
   .wrapper {
     .user-container {
-
-      padding: 15px;
-
       .home-container {
 
         .svg-icon {
@@ -122,11 +144,7 @@
       }
 
       .user-info {
-
         .user-image {
-          width: 50px;
-          height: 50px;
-
           img {
             width: 100%;
             height: 100%;
@@ -134,12 +152,13 @@
         }
 
         .user-description {
-          font-size: 12px;
+          p {
+            font-size: 12px;
+          }
         }
       }
 
       .settings-container {
-
         p {
           font-size: 12px;
         }

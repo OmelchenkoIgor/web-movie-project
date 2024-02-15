@@ -1,8 +1,11 @@
 <div class="wrapper">
   <div class="user-container">
 
-    <div class="home-container">
-      <i class="ph ph-house svg-icon" routerLink="/home"></i>
+    <div class="back-button-container">
+      <button routerLink="/home" class="btn-back">
+        <i class="ph ph-caret-double-left left-arrow"></i>
+        {{'goBack' | transloco}}
+      </button>
     </div>
 
     <div class="user-info">
@@ -23,10 +26,16 @@
       <p>{{'settings' | transloco}}</p>
 
       <div class="lang-container">
-        <button class="text-accent" (click)="changeLanguage('en')">{{'english' | transloco}}</button>
-        <button class="text-accent" (click)="changeLanguage('uk')">{{'ukrainian' | transloco}}</button>
-      </div>
+        <div class="language">
+          <p>{{ 'language' | transloco}}</p>
+        </div>
 
+          <nz-select [ngModel]="language" (ngModelChange)="changeLanguage($event)">
+            <nz-option nzValue="en" nzLabel="{{'english' | transloco}}"></nz-option>
+            <nz-option nzValue="uk" nzLabel="{{'ukrainian' | transloco}}"></nz-option>
+          </nz-select>
+
+      </div>
     </div>
 
     <button class="logout-btn" (click)="_auth.logout()">{{'logout' | transloco}}</button>

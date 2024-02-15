@@ -17,5 +17,6 @@
   "description": "Description",
   "rating": "Rating",
   "country": "Country",
-  "goBack": "Go back"
+  "goBack": "Go back",
+  "language": "Language"
 }

@@ -25,6 +25,7 @@ import en from '@angular/common/locales/en';
 import {NzInputModule} from 'ng-zorro-antd/input';
 import {NzIconModule} from 'ng-zorro-antd/icon';
 import {NzPaginationModule} from 'ng-zorro-antd/pagination';
+import {NzSelectModule} from 'ng-zorro-antd/select';
 
 registerLocaleData(en);
 
@@ -57,7 +58,8 @@ registerLocaleData(en);
         TranslocoRootModule,
         NzInputModule,
         NzIconModule,
-        NzPaginationModule
+        NzPaginationModule,
+        NzSelectModule
     ],
   providers: [
     {provide: NZ_I18N, useValue: en_US}

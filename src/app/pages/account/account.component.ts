@@ -10,6 +10,7 @@ import {TranslocoService} from '@ngneat/transloco';
 })
 export class AccountComponent implements OnInit {
   public loggedInUser: any;
+  public language: string | undefined;
 
   constructor(
     public _auth: AuthService,
@@ -21,6 +22,10 @@ export class AccountComponent implements OnInit {
     this.userService.loggedInUserData$.subscribe((data) => {
       this.loggedInUser = data;
     });
+
+    const webParamsString = localStorage.getItem('web-params');
+    const webParams = webParamsString ? JSON.parse(webParamsString) : {};
+    this.language = webParams.language ? webParams.language : 'en';
   }
 
   public changeLanguage(language: string) {
