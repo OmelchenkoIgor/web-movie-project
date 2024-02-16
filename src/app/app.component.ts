@@ -55,4 +55,12 @@ export class AppComponent implements OnInit {
   public isCurrentPage(path: string): boolean {
     return this.router.url === path;
   }
+
+  public scrollToTop() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
 }

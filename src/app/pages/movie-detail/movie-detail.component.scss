@@ -1,31 +1,29 @@
 @import '../../../styles';
 
 .back-button-container {
-  margin-top: 10px;
+  margin-bottom: 10px;
 
-  display: inline-block;
-  position: relative;
+  nz-breadcrumb {
+    font-size: 20px;
 
-  .btn-back {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    padding-left: 0;
+    ::ng-deep .ant-breadcrumb-link {
+      cursor: pointer;
+      color: $greyish-blue;
+    }
 
-    color: $greyish-blue;
-    background-color: #10141E;
-    border: none;
-    font-weight: 600;
+    ::ng-deep .ant-breadcrumb-link:hover {
+      color: $pure-white;
+    }
 
-    transition: transform 0.3s ease;
+    ::ng-deep nz-breadcrumb-separator {
+      color: $greyish-blue;
+    }
   }
 
-  .btn-back:hover {
+  ::ng-deep nz-breadcrumb-item:last-child .ant-breadcrumb-link {
     color: $pure-white;
-    transform: translateX(5px);
   }
 }
-
 
 .movie {
   .movie-info {
@@ -118,7 +116,22 @@
   }
 }
 
+.footer {
+  display: none;
+}
+
+
+
 @media (max-width: 768px) {
+
+  .back-button-container {
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    nz-breadcrumb {
+      font-size: 15px;
+    }
+  }
 
   .movie {
     .movie-info {
@@ -175,5 +188,16 @@
         width: 100%;
       }
     }
+  }
+
+  .footer {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    position: absolute;
+    top: -1;
+    left: 0;
+    background-color: $semi-dark-blue;
   }
 }

@@ -24,7 +24,6 @@
       <div class="card" *ngFor="let movie of movies" (click)="goToMovieDetail(movie.id)">
         <img [src]="getImageUrl(movie.poster_path)" class="movie-image">
         <div class="description-card">
-          <p>{{movie.release_date}}</p>
           <h3>{{movie.title}}</h3>
         </div>
       </div>

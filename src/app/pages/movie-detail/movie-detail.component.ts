@@ -1,7 +1,7 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../services/api.service';
+import {ActivatedRoute} from '@angular/router';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -9,27 +9,32 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkScreenSize();
+  }
+
   movie: any;
   firstVideoKey: string | undefined;
   videoUrl: SafeResourceUrl | undefined;
   isMobileScreen: boolean = false;
+  movieId: string | undefined;
 
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
     private sanitizer: DomSanitizer
-  ) { }
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     let webParams: any = JSON.parse(localStorage.getItem('web-params') || '{}');
-
     let language = webParams.language || 'en';
-
 
     this.route.params.subscribe(params => {
       const movieId = +params['id'];
       this.apiService.getMovieDetails(movieId, language).subscribe((data: any) => {
         this.movie = data;
+        this.movieId = movieId.toString();
         console.log(this.movie);
       });
 
@@ -45,16 +50,15 @@ export class MovieDetailComponent implements OnInit {
     this.checkScreenSize();
   }
 
-  public getImageUrl(posterPath: string): string {
+  public getImageUrl(posterPath: string) {
     return `${this.apiService.IMG_URL}/${posterPath}`;
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.checkScreenSize();
+  public checkScreenSize() {
+    this.isMobileScreen = window.innerWidth < 768;
   }
 
-  checkScreenSize() {
-    this.isMobileScreen = window.innerWidth < 768;
+  public isMoviePage(): boolean {
+    return this.route.snapshot.url[0].path === 'movie';
   }
 }

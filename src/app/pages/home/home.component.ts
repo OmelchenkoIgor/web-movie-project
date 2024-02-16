@@ -51,6 +51,12 @@ export class HomeComponent implements OnInit {
       webParams.pageNumber = pageNumber;
       localStorage.setItem('web-params', JSON.stringify(webParams));
     });
+
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
   public onSearch(language: string) {

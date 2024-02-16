@@ -15,8 +15,8 @@
   "year": "Year",
   "genre": "Genre",
   "description": "Description",
-  "rating": "Rating",
   "country": "Country",
-  "goBack": "Go back",
-  "language": "Language"
+  "language": "Language",
+  "home": "Home",
+  "movie": "Movie"
 }

@@ -15,8 +15,8 @@
   "year": "Рік",
   "genre": "Жанр",
   "description": "Опис",
-  "rating": "Рейтинг",
   "country": "Країна",
-  "goBack": "Повернутись назад",
-  "language": "Мова"
+  "language": "Мова",
+  "home": "Головна",
+  "movie": "Фільм"
 }

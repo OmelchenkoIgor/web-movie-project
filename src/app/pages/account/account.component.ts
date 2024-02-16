@@ -19,13 +19,12 @@ export class AccountComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    const webParams = JSON.parse(localStorage.getItem('web-params') || '{}');
+    this.language = webParams.language || 'en';
+
     this.userService.loggedInUserData$.subscribe((data) => {
       this.loggedInUser = data;
     });
-
-
-    const webParams = JSON.parse(localStorage.getItem('web-params') || '{}');
-    this.language = webParams.language || 'en';
   }
 
   public changeLanguage(language: string) {

@@ -1,10 +1,10 @@
-<div *ngIf="isMobileScreen" class="back-button-container">
-
-  <button routerLink="/home" class="btn-back">
-    <i class="ph ph-caret-double-left left-arrow"></i>
-    {{'goBack' | transloco}}
-  </button>
+<div class="back-button-container">
+  <nz-breadcrumb>
+    <nz-breadcrumb-item routerLink="/home">{{'home' | transloco}}</nz-breadcrumb-item>
+    <nz-breadcrumb-item *ngIf="isMoviePage()" [routerLink]="['/movie', movieId]">{{'movie' | transloco}}</nz-breadcrumb-item>
+  </nz-breadcrumb>
 </div>
+
 <div *ngIf="movie" class="movie">
   <div class="movie-info">
     <div class="movie-img">
@@ -48,4 +48,7 @@
   <div *ngIf="videoUrl" class="video">
     <iframe width="560" height="315" [src]="videoUrl" allowfullscreen></iframe>
   </div>
+</div>
+<div class="footer">
+
 </div>
