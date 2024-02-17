@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {forkJoin, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -53,8 +53,19 @@ export class ApiService {
       .set('language', language);
     return this.http.get(
       `${this.BASE_URL}/search/movie`,
-      { params }
+      {params}
     );
   }
 
+  public getMoviesByIds(movieIds: number[], language: string): Observable<any[]> {
+    const params = new HttpParams()
+      .set('api_key', this.API_KEY)
+      .set('language', language);
+
+    const observables = movieIds.map(movieId => {
+      return this.http.get(`${this.BASE_URL}/movie/${movieId}`, { params });
+    });
+
+    return forkJoin(observables);
+  }
 }

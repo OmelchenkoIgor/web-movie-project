@@ -1,3 +1,49 @@
+@import '../../../styles';
+
 .wrapper {
+  margin-top: 15px;
   text-align: center;
+
+  .movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+
+    .card {
+      transition: transform 0.3s ease;
+
+      .movie-image {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .description-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+          margin: 0;
+          color: $pure-white;
+        }
+      }
+    }
+
+    .card:hover {
+      cursor: pointer;
+      transform: translateY(-5px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+
+    .movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 16px;
+    }
+  }
 }

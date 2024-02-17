@@ -18,5 +18,9 @@
   "country": "Country",
   "language": "Language",
   "home": "Home",
-  "movie": "Movie"
+  "movie": "Movie",
+  "save": "Save",
+  "watching": "Watching",
+  "viewed": "Viewed",
+  "favorite": "Favorite"
 }

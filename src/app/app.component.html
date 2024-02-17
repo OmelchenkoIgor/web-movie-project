@@ -23,10 +23,12 @@
             routerLink="/tv"
             src="assets/icons/icon-tv.svg"
             [ngStyle]="{'filter': isCurrentPage('/tv') ? 'brightness(350%)' : 'none'}">
-          <img
-            routerLink="/bookmarks"
-            src="assets/icons/icon-bookmarks.svg"
-            [ngStyle]="{'filter': isCurrentPage('/bookmarks') ? 'brightness(350%)' : 'none'}">
+          <nz-badge nzSize="small" [nzCount]="savedMovies">
+            <img
+              routerLink="/bookmarks"
+              src="assets/icons/icon-bookmarks.svg"
+              [ngStyle]="{'filter': isCurrentPage('/bookmarks') ? 'brightness(350%)' : 'none'}">
+          </nz-badge>
         </div>
       </div>
 

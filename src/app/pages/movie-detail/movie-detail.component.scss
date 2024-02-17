@@ -44,6 +44,10 @@
       font-size: 18px;
       padding-left: 10px;
 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
       .short-header {
         display: flex;
         flex-wrap: wrap;
@@ -87,6 +91,34 @@
         span {
           font-weight: lighter;
           color: $greyish-blue;
+        }
+      }
+
+      .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        button {
+          min-width: 80px;
+          background: none;
+          border: 1px dotted $greyish-blue;
+          border-radius: 10px;
+
+          cursor: pointer;
+          color: $pure-white;
+          transition: background-color 0.4s, color 0.4s;
+        }
+
+
+        button:active,
+        button.saved {
+          border: none;
+
+          color: $dark-blue;
+          background-color: $red;
+
+          font-weight: 700;
         }
       }
     }
@@ -144,8 +176,6 @@
       }
 
       .movie-description {
-        display: flex;
-        flex-direction: column;
         justify-content: space-between;
 
         font-size: 12px;

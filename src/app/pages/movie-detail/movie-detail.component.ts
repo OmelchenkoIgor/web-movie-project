@@ -17,8 +17,9 @@ export class MovieDetailComponent implements OnInit {
   movie: any;
   firstVideoKey: string | undefined;
   videoUrl: SafeResourceUrl | undefined;
-  isMobileScreen: boolean = false;
+  isMobileScreen = false;
   movieId: string | undefined;
+  isMovieSaved = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +37,10 @@ export class MovieDetailComponent implements OnInit {
         this.movie = data;
         this.movieId = movieId.toString();
         console.log(this.movie);
+
+        if (webParams.arrMovieId && webParams.arrMovieId.includes(this.movieId)) {
+          this.isMovieSaved = true;
+        }
       });
 
       this.apiService.getMovieVideos(movieId, language).subscribe(data => {
@@ -58,7 +63,23 @@ export class MovieDetailComponent implements OnInit {
     this.isMobileScreen = window.innerWidth < 768;
   }
 
-  public isMoviePage(): boolean {
-    return this.route.snapshot.url[0].path === 'movie';
+  public saveMovie() {
+    let webParams: any = JSON.parse(localStorage.getItem('web-params') || '{}');
+    if (!webParams.arrMovieId) {
+      webParams.arrMovieId = [];
+    }
+    const index = webParams.arrMovieId.indexOf(this.movieId);
+    if (index !== -1) {
+      webParams.arrMovieId.splice(index, 1);
+      this.isMovieSaved = false;
+    } else {
+      webParams.arrMovieId.push(this.movieId);
+      this.isMovieSaved = true;
+    }
+
+    localStorage.setItem('web-params', JSON.stringify(webParams));
+
+    console.log(webParams.arrMovieId);
   }
+
 }

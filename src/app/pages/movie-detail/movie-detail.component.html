@@ -1,7 +1,7 @@
 <div class="back-button-container">
   <nz-breadcrumb>
     <nz-breadcrumb-item routerLink="/home">{{'home' | transloco}}</nz-breadcrumb-item>
-    <nz-breadcrumb-item *ngIf="isMoviePage()" [routerLink]="['/movie', movieId]">{{'movie' | transloco}}</nz-breadcrumb-item>
+    <nz-breadcrumb-item [routerLink]="['/movie', movieId]">{{'movie' | transloco}}</nz-breadcrumb-item>
   </nz-breadcrumb>
 </div>
 
@@ -36,6 +36,13 @@
           <span
             *ngFor="let country of movie.production_countries; let last = last">{{ country.name }}{{ !last ? ', ' : '' }}</span>
         </p>
+      </div>
+
+      <div class="btn-group">
+        <button (click)="saveMovie()" [ngClass]="{'saved': isMovieSaved}">{{'save' | transloco}}</button>
+        <button>{{'watching' | transloco}}</button>
+        <button>{{'viewed' | transloco}}</button>
+        <button>{{'favorite' | transloco}}</button>
       </div>
     </div>
   </div>

@@ -43,20 +43,22 @@ export class HomeComponent implements OnInit {
   }
 
   public onPageChanged(pageNumber: number, language: string) {
-    this.currentPage = pageNumber;
-    this.apiService.getMoviesByCriteria(pageNumber, language).subscribe((data) => {
-      this.movies = data.results;
-
-      let webParams: any = JSON.parse(localStorage.getItem('web-params') || '{}');
-      webParams.pageNumber = pageNumber;
-      localStorage.setItem('web-params', JSON.stringify(webParams));
-    });
-
     window.scroll({
       top: 0,
       left: 0,
       behavior: 'smooth'
     });
+
+    setTimeout(() => {
+      this.currentPage = pageNumber;
+      this.apiService.getMoviesByCriteria(pageNumber, language).subscribe((data) => {
+        this.movies = data.results;
+
+        let webParams: any = JSON.parse(localStorage.getItem('web-params') || '{}');
+        webParams.pageNumber = pageNumber;
+        localStorage.setItem('web-params', JSON.stringify(webParams));
+      });
+    }, 500)
   }
 
   public onSearch(language: string) {
