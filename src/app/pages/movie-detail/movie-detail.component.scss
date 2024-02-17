@@ -201,6 +201,15 @@
             margin: 0;
           }
         }
+
+        .btn-group {
+          margin-top: 10px;
+
+          button {
+            min-width: 50px;
+            font-size: 10px;
+          }
+        }
       }
     }
 
