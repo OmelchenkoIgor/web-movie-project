@@ -26,7 +26,7 @@ export class BookmarksComponent implements OnInit {
   }
 
   public goToMovieDetail(movieId: number) {
-    this.router.navigate(['/movie', movieId]);
+    this.router.navigate(['/movie', movieId], { queryParams: { source: 'bookmarks' } });
   }
 
   public getImageUrl(posterPath: string): string {

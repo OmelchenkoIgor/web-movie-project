@@ -2,10 +2,10 @@
   <div class="user-container">
 
     <div class="back-button-container">
-      <button routerLink="/home" class="btn-back">
-        <i class="ph ph-caret-double-left left-arrow"></i>
-        {{'home' | transloco}}
-      </button>
+      <nz-breadcrumb>
+        <nz-breadcrumb-item routerLink="/home">{{'home' | transloco}}</nz-breadcrumb-item>
+        <nz-breadcrumb-item routerLink="/account">{{'account' | transloco}}</nz-breadcrumb-item>
+      </nz-breadcrumb>
     </div>
 
     <div class="user-info">

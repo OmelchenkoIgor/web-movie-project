@@ -9,7 +9,7 @@
   "messageUserLoggedIn": "you are already logged in, thank you for your support! Wait for the next site updates...\nP.S. a small site developer)",
   "tv page": "TV page!",
   "movies page": "Movies page!",
-  "bookmarks page": "Bookmarks page",
+  "bookmarks": "Bookmarks",
   "homeInputPlaceholder": "Search for movies or TV series",
   "message recommendations": "Recommended for you",
   "year": "Year",
@@ -20,7 +20,7 @@
   "home": "Home",
   "movie": "Movie",
   "save": "Save",
-  "watching": "Watching",
   "viewed": "Viewed",
-  "favorite": "Favorite"
+  "favorite": "Favorite",
+  "account": "Account"
 }

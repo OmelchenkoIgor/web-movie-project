@@ -3,27 +3,27 @@
 .wrapper {
   .user-container {
     .back-button-container {
-      display: inline-block;
-      position: relative;
+      margin-bottom: 10px;
 
-      .btn-back {
-        display: flex;
-        gap: 5px;
-        align-items: center;
-        padding-left: 0;
+      nz-breadcrumb {
+        font-size: 20px;
 
-        color: $greyish-blue;
-        background-color: #10141E;
-        border: none;
-        font-weight: 600;
+        ::ng-deep .ant-breadcrumb-link {
+          cursor: pointer;
+          color: $greyish-blue;
+        }
 
-        cursor: pointer;
-        transition: transform 0.3s ease;
+        ::ng-deep .ant-breadcrumb-link:hover {
+          color: $pure-white;
+        }
+
+        ::ng-deep nz-breadcrumb-separator {
+          color: $greyish-blue;
+        }
       }
 
-      .btn-back:hover {
+      ::ng-deep nz-breadcrumb-item:last-child .ant-breadcrumb-link {
         color: $pure-white;
-        transform: translateX(5px);
       }
     }
 
@@ -133,9 +133,17 @@
 }
 
 @media (max-width: 768px) {
-
   .wrapper {
     .user-container {
+      .back-button-container {
+        margin-top: 10px;
+        margin-bottom: 0;
+
+        nz-breadcrumb {
+          font-size: 15px;
+        }
+      }
+
       .home-container {
 
         .svg-icon {

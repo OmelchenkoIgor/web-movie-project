@@ -20,12 +20,17 @@ export class MovieDetailComponent implements OnInit {
   isMobileScreen = false;
   movieId: string | undefined;
   isMovieSaved = false;
+  sourcePage: string | undefined;
 
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
     private sanitizer: DomSanitizer
-  ) {}
+  ) {
+    this.route.queryParams.subscribe(params => {
+      this.sourcePage = params['source'];
+    });
+  }
 
   ngOnInit() {
     let webParams: any = JSON.parse(localStorage.getItem('web-params') || '{}');
@@ -81,5 +86,4 @@ export class MovieDetailComponent implements OnInit {
 
     console.log(webParams.arrMovieId);
   }
-
 }
