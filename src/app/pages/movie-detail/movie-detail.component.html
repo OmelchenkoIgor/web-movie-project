@@ -13,31 +13,34 @@
     </div>
 
     <div class="movie-description">
-      <div class="short-header">
-        <div>
-          <h1>{{ movie.title }}</h1>
+      <div>
+        <div class="short-header">
+          <div class="title">
+            <h1>{{ movie.title }}</h1>
+          </div>
+
+          <div class="rating">
+            <p>IMDB <span>{{ movie.vote_average.toFixed(1) }}</span></p>
+          </div>
         </div>
 
-        <div class="rating">
-          <p>IMDB <span>{{ movie.vote_average.toFixed(1) }}</span></p>
+        <div class="short-list">
+          <p class="release-date"><strong>{{ 'year' | transloco}}: </strong>
+            <span>{{ movie.release_date | date: 'yyyy' }} </span>
+            <span>({{movie.status}})</span>
+          </p>
+
+          <p class="genres"><strong>{{ 'genre' | transloco }}: </strong>
+            <span *ngFor="let genre of movie.genres; let last = last">{{ genre.name }}{{ !last ? ', ' : '' }}</span>
+          </p>
+
+          <p class="production-countries"><strong>{{'country' | transloco}}: </strong>
+            <span
+              *ngFor="let country of movie.production_countries; let last = last">{{ country.name }}{{ !last ? ', ' : '' }}</span>
+          </p>
         </div>
       </div>
 
-      <div class="short-list">
-        <p class="release-date"><strong>{{ 'year' | transloco}}: </strong>
-          <span>{{ movie.release_date | date: 'yyyy' }} </span>
-          <span>({{movie.status}})</span>
-        </p>
-
-        <p class="genres"><strong>{{ 'genre' | transloco }}: </strong>
-          <span *ngFor="let genre of movie.genres; let last = last">{{ genre.name }}{{ !last ? ', ' : '' }}</span>
-        </p>
-
-        <p class="production-countries"><strong>{{'country' | transloco}}: </strong>
-          <span
-            *ngFor="let country of movie.production_countries; let last = last">{{ country.name }}{{ !last ? ', ' : '' }}</span>
-        </p>
-      </div>
 
       <div class="btn-group">
         <button (click)="saveMovie()" [ngClass]="{'saved': isMovieSaved}">{{'save' | transloco}}</button>

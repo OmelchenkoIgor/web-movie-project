@@ -40,24 +40,27 @@
     }
 
     .movie-description {
-      width: 100%;
       font-size: 18px;
       padding-left: 10px;
 
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
 
       .short-header {
+        margin-bottom: 15px;
         display: flex;
         flex-wrap: wrap;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-between;
 
-        h1 {
-          font-size: 30px;
-          line-height: 30px;
-          color: $pure-white;
+        .title {
+          h1 {
+            margin: 0;
+            font-size: 30px;
+            line-height: 30px;
+            color: $pure-white;
+          }
         }
 
         .rating {
@@ -76,6 +79,12 @@
             margin: 0;
             color: $dark-blue;
           }
+        }
+      }
+
+      .short-list {
+        p {
+          margin: 0;
         }
       }
 
@@ -99,8 +108,11 @@
         flex-wrap: wrap;
         gap: 10px;
 
+        flex-direction: column;
+        align-content: flex-start;
+
         button {
-          min-width: 80px;
+          min-width: 150px;
           background: none;
           border: 1px dotted $greyish-blue;
           border-radius: 5px;
@@ -182,9 +194,11 @@
 
         .short-header {
 
-          h1 {
-            font-size: 20px;
-            line-height: 24px;
+          .title {
+            h1 {
+              font-size: 20px;
+              line-height: 24px;
+            }
           }
 
           .rating {
@@ -204,6 +218,7 @@
 
         .btn-group {
           margin-top: 10px;
+          flex-direction: row;
 
           button {
             min-width: 50px;
